@@ -35,7 +35,7 @@
   file:
     name: "{{ wowza_log_directory }}"
     state: directory
-    mode: "0700"
+    mode: "0755"
     owner: root
     group: root
 
