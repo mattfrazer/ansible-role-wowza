@@ -72,7 +72,7 @@
     path: "{{ wowza_config_log }}"
     regexp: '^log4j\\.appender\\.serverError\\.layout\\.OutputHeader=true'
     replace: 'log4j.appender.serverError.layout.OutputHeader=false'
-  when: not wowza_enable_error_log_header and version(wowza_version, '<', '4.8.6')
+  when: not wowza_enable_error_log_header and wowza_version is version('4.8.6', '<')
   notify: 'WOWZA | restart WSE'
 
 - name: WOWZA | Enable output header from error log
@@ -80,7 +80,7 @@
     path: "{{ wowza_config_log }}"
     regexp: '^log4j\\.appender\\.serverError\\.layout\\.OutputHeader=false'
     replace: 'log4j.appender.serverError.layout.OutputHeader=true'
-  when: wowza_enable_error_log_header and version(wowza_version, '<', '4.8.6')
+  when: wowza_enable_error_log_header and wowza_version is version('4.8.6', '<')
   notify: 'WOWZA | restart WSE'
 
 - name: WOWZA | Disable output header from access log
@@ -88,7 +88,7 @@
     path: "{{ wowza_config_log }}"
     regexp: '^log4j\.appender\.serverAccess\.layout\.OutputHeader=true'
     replace: 'log4j.appender.serverAccess.layout.OutputHeader=false'
-  when: not wowza_enable_access_log_header and version(wowza_version, '<', '4.8.6')
+  when: not wowza_enable_access_log_header and wowza_version is version('4.8.6', '<')
   notify: 'WOWZA | restart WSE'
 
 - name: WOWZA | Enable output header from access log
@@ -96,7 +96,7 @@
     path: "{{ wowza_config_log }}"
     regexp: '^log4j\.appender\.serverAccess\.layout\.OutputHeader=false'
     replace: 'log4j.appender.serverAccess.layout.OutputHeader=true'
-  when: wowza_enable_access_log_header and version(wowza_version, '<', '4.8.6')
+  when: wowza_enable_access_log_header and wowza_version is version('4.8.6', '<')
   notify: 'WOWZA | restart WSE'
 
 - name: WOWZA | Fix windows CR EOL in WSE configs
