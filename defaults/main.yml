@@ -171,3 +171,7 @@ wowza_modules_packetizercontrol_enable: false
 wowza_modules_packetizercontrol: wse-plugin-packetizercontrol.zip
 wowza_modules_transcodercontrol_enable: false
 wowza_modules_transcodercontrol: wse-plugin-transcodercontrol.zip
+
+# Wowza log headers
+wowza_enable_access_log_header: true
+wowza_enable_error_log_header: true
